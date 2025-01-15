@@ -13,16 +13,13 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Informe o nome da empresa: ");
-        String nomeEmpresa = sc.nextLine();
-        System.out.println();
-
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
 
-        Empresa empresa = new Empresa(funcionarios, nomeEmpresa);
+        Empresa empresa = new Empresa(funcionarios, "<<<<PV Miudezas para Construção>>>>");
 
         int opcao;
         do{
+            System.out.println(empresa.getNomeEmpresa());
             System.out.println("---------------MENU---------------");
             System.out.println("1 - Adicionar funcionário\n2 - Remover funcionário\n3 - Buscar funcionário\n4 - Mostrar todos os funcionários\n5 - Sair");
             System.out.println("----------------------------------");

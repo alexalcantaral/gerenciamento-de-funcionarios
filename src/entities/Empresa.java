@@ -51,4 +51,18 @@ public class Empresa {
             System.out.println(func);
         }
     }
+
+    public void aumentarSalario(int id, double porcentagem){
+        for(Funcionario func : list){
+            if(func.getId() == id){
+                if(porcentagem > 0){
+                    func.aumentarSalario(porcentagem);
+                    System.out.println("\nAumento realizado!" + func);
+                }
+                else{
+                    System.out.println("Porcentagem de aumento inválida!");
+                }
+            }
+        }
+    }
 }

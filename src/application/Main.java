@@ -14,6 +14,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        Funcionario funcionario = new Funcionario();
 
         Empresa empresa = new Empresa(funcionarios, "<<<<PV Miudezas para Construção>>>>");
 
@@ -21,7 +22,7 @@ public class Main {
         do{
             System.out.println(empresa.getNomeEmpresa());
             System.out.println("---------------MENU---------------");
-            System.out.println("1 - Adicionar funcionário\n2 - Remover funcionário\n3 - Buscar funcionário\n4 - Mostrar todos os funcionários\n5 - Sair");
+            System.out.println("1 - Adicionar funcionário\n2 - Remover funcionário\n3 - Buscar funcionário\n4 - Mostrar todos os funcionários\n5 - Aumentar salário de funcionário\n6 - Sair");
             System.out.println("----------------------------------");
             System.out.print("Opção: ");
             opcao = sc.nextInt();
@@ -33,7 +34,7 @@ public class Main {
                     sc.nextLine();
                     System.out.print("Nome: ");
                     String nome = sc.nextLine();
-                    Funcionario funcionario = new Funcionario(id, nome, 1518.00); //Deixei definido um salário minimo como o salário inicial de um funcionário.
+                    funcionario = new Funcionario(id, nome, 1518.00); //Deixei definido um salário minimo como o salário inicial de um funcionário.
                     empresa.adicionarFuncionario(funcionario);
                     break;
                 case 2:
@@ -50,12 +51,19 @@ public class Main {
                     empresa.exibirFuncionarios();
                     ;break;
                 case 5:
+                    System.out.print("ID do funcionário que vai ter o salário aumentado: ");
+                    int idAumento = sc.nextInt();
+                    System.out.print("Informe a porcentagem de aumento: ");
+                    double porcentagem = sc.nextDouble();
+                    empresa.aumentarSalario(idAumento, porcentagem);
+                    break;
+                case 6:
                     System.out.println("Saindo...");
                     break;
                 default:
                     System.out.println("Não existe essa opção!");
             }
-        }while(opcao != 5);
+        }while(opcao != 6);
 
         sc.close();
     }
